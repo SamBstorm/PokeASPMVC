@@ -22,10 +22,12 @@ namespace PokeASPMVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string api = Configuration.GetValue<string>( "apiUrl");
+            string pokeapi = Configuration.GetValue<string>( "apiUrl");
+            string localapi = Configuration.GetValue<string>( "localUrl");
             services.AddControllersWithViews();
 
-            services.AddHttpClient<PokeApiDAL.Services.PokeApiService>(s=> s.BaseAddress= new Uri(api));
+            services.AddHttpClient<PokeApiDAL.Services.PokeApiService>(s=> s.BaseAddress= new Uri(pokeapi));
+            services.AddHttpClient<PokeApiDAL.Services.PokeTeamsService>(s=> s.BaseAddress= new Uri(localapi));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

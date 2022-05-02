@@ -1,0 +1,81 @@
+﻿@model PokeASPMVC.Models.PokemonTeamsForm
+
+@{
+    ViewData["Title"] = "SetTeam";
+}
+
+<h1>SetTeam</h1>
+
+<h4>PokemonTeamsForm</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SetTeam">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pokemon_1_id" class="control-label"></label>
+                @Html.DropDownListFor(
+               m=> Model.pokemon_1_id,
+               Model.pokemon_list.Select(p=> new SelectListItem() { Text = p.ToString(), Value = p.ToString() }),
+               "Veuillez sélectionner un pokémon")
+                <span asp-validation-for="pokemon_1_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pokemon_2_id" class="control-label"></label>
+                @Html.DropDownListFor(
+               m => Model.pokemon_2_id,
+               Model.pokemon_list.Select(p => new SelectListItem() { Text = p.ToString(), Value = p.ToString() }),
+               "Veuillez sélectionner un pokémon")
+                <span asp-validation-for="pokemon_2_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pokemon_3_id" class="control-label"></label>
+                @Html.DropDownListFor(
+               m => Model.pokemon_3_id,
+               Model.pokemon_list.Select(p => new SelectListItem() { Text = p.ToString(), Value = p.ToString() }),
+               "Veuillez sélectionner un pokémon")
+                <span asp-validation-for="pokemon_3_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pokemon_4_id" class="control-label"></label>
+                @Html.DropDownListFor(
+               m => Model.pokemon_4_id,
+               Model.pokemon_list.Select(p => new SelectListItem() { Text = p.ToString(), Value = p.ToString() }),
+               "Veuillez sélectionner un pokémon")
+                <span asp-validation-for="pokemon_4_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pokemon_5_id" class="control-label"></label>
+                @Html.DropDownListFor(
+               m => Model.pokemon_5_id,
+               Model.pokemon_list.Select(p => new SelectListItem() { Text = p.ToString(), Value = p.ToString() }),
+               "Veuillez sélectionner un pokémon")
+                <span asp-validation-for="pokemon_5_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pokemon_6_id" class="control-label"></label>
+                @Html.DropDownListFor(
+               m => Model.pokemon_6_id,
+               Model.pokemon_list.Select(p => new SelectListItem() { Text = p.ToString(), Value = p.ToString() }),
+               "Veuillez sélectionner un pokémon")
+                <span asp-validation-for="pokemon_6_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
